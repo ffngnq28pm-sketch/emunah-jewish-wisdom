@@ -88,10 +88,10 @@ export const FOCUS_THEMES: FocusTheme[] = [
 
 export const FOCUS_THEME_ICONS: Record<FocusTheme, string> = {
   Emunah: '✡️',
-  Chesed: '🕊️',
-  Ahavah: '❤️',
+  Chesed: '🤝',
+  Ahavah: '🌸',
   Torah: '📜',
-  Shalom: '☮️',
+  Shalom: '🕊️',
   Simcha: '✨',
 };
 
