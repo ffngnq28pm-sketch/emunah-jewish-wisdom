@@ -96,25 +96,6 @@ export default function OnboardingScreen() {
               />
             </View>
 
-            {nameMeaning && (
-              <View style={styles.nameMeaningCard}>
-                <Text style={styles.nameMeaningHebrew}>{nameMeaning.hebrew}</Text>
-                <Text style={styles.nameMeaningOrigin}>{nameMeaning.origin} · {nameMeaning.gender === 'M' ? 'Masculin' : nameMeaning.gender === 'F' ? 'Féminin' : 'Mixte'}</Text>
-                <Text style={styles.nameMeaningText}>{nameMeaning.meaning}</Text>
-                {nameMeaning.biblical ? (
-                  <View style={styles.nameMeaningBiblical}>
-                    <Text style={styles.nameMeaningBiblicalLabel}>📖 Référence biblique</Text>
-                    <Text style={styles.nameMeaningBiblicalText}>{nameMeaning.biblical}</Text>
-                  </View>
-                ) : null}
-                {nameMeaning.virtue ? (
-                  <View style={styles.nameMeaningVirtueBadge}>
-                    <Text style={styles.nameMeaningVirtueText}>✡ {nameMeaning.virtue}</Text>
-                  </View>
-                ) : null}
-              </View>
-            )}
-
             <TouchableOpacity
               style={[styles.nextBtn, !name.trim() && styles.nextBtnDisabled]}
               onPress={handleNameNext}
@@ -137,6 +118,26 @@ export default function OnboardingScreen() {
             <Text style={styles.stepTitle}>
               {name.trim() ? `Shalom, ${name.trim()}` : 'Votre kavanah'}
             </Text>
+
+            {nameMeaning && (
+              <View style={styles.nameMeaningCard}>
+                <Text style={styles.nameMeaningHebrew}>{nameMeaning.hebrew}</Text>
+                <Text style={styles.nameMeaningOrigin}>{nameMeaning.origin} · {nameMeaning.gender === 'M' ? 'Masculin' : nameMeaning.gender === 'F' ? 'Féminin' : 'Mixte'}</Text>
+                <Text style={styles.nameMeaningText}>{nameMeaning.meaning}</Text>
+                {nameMeaning.biblical ? (
+                  <View style={styles.nameMeaningBiblical}>
+                    <Text style={styles.nameMeaningBiblicalLabel}>📖 Référence biblique</Text>
+                    <Text style={styles.nameMeaningBiblicalText}>{nameMeaning.biblical}</Text>
+                  </View>
+                ) : null}
+                {nameMeaning.virtue ? (
+                  <View style={styles.nameMeaningVirtueBadge}>
+                    <Text style={styles.nameMeaningVirtueText}>✡ {nameMeaning.virtue}</Text>
+                  </View>
+                ) : null}
+              </View>
+            )}
+
             <Text style={styles.stepSubtitle}>
               Choisissez un thème pour votre intention spirituelle.{'\n'}
               Vos sagesses quotidiennes y seront adaptées.
