@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { AsyncStorage_like } from './storage';
 
-export type FocusTheme = 'Emunah' | 'Chesed' | 'Ahavah' | 'Torah' | 'Shalom' | 'Simcha';
+export type FocusTheme = 'Emunah' | 'Chesed' | 'Savlanut' | 'Torah' | 'Shalom' | 'Simcha';
 export type NotifPreset = 'Shacharit' | 'Mincha' | 'Maariv' | 'Shabbat' | 'Havdalah';
 export type AppTheme = 'dark' | 'light' | 'sepia';
 
@@ -80,19 +80,19 @@ export function useUserProfile() {
 export const FOCUS_THEMES: FocusTheme[] = [
   'Emunah',
   'Chesed',
-  'Ahavah',
+  'Savlanut',
   'Torah',
   'Shalom',
   'Simcha',
 ];
 
 export const FOCUS_THEME_ICONS: Record<FocusTheme, string> = {
-  Emunah: '✡️',
-  Chesed: '🤝',
-  Ahavah: '🌸',
-  Torah: '📜',
-  Shalom: '🕊️',
-  Simcha: '✨',
+  Emunah:   '✡️',
+  Chesed:   '🤝',
+  Savlanut: '🌊',
+  Torah:    '📜',
+  Shalom:   '🕊️',
+  Simcha:   '✨',
 };
 
 export const NOTIF_PRESETS: { key: NotifPreset; label: string; time: string; desc: string }[] = [

@@ -1,0 +1,19 @@
+{
+  "name": "Emunah — Sagesse Juive",
+  "short_name": "Emunah",
+  "description": "365 sagesses de la Torah, du Talmud et de la tradition juive",
+  "start_url": "/emunah-jewish-wisdom/",
+  "scope": "/emunah-jewish-wisdom/",
+  "display": "standalone",
+  "background_color": "#080A12",
+  "theme_color": "#C9A84C",
+  "orientation": "portrait",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "/emunah-jewish-wisdom/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}

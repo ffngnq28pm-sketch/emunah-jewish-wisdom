@@ -19,12 +19,12 @@ import { findJewishNameMeaning, JewishName } from '@/data/jewishNames';
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
 const THEME_CONFIG: Record<FocusTheme, { desc: string; color: string }> = {
-  Emunah: { desc: 'Approfondir la foi et la confiance en Dieu',     color: '#C9A84C' },
-  Chesed: { desc: 'Cultiver la bonté et la générosité envers tous', color: '#4A7A5A' },
-  Ahavah: { desc: 'Ouvrir le cœur à l\'amour divin et humain',      color: '#A5664A' },
-  Torah:  { desc: 'Se consacrer à l\'étude de la Torah',            color: '#6B5FA5' },
-  Shalom: { desc: 'Chercher la paix intérieure et entre les hommes', color: '#4A7A8A' },
-  Simcha: { desc: 'Servir Dieu dans la joie et l\'allégresse',      color: '#8A6B20' },
+  Emunah:   { desc: 'Approfondir la foi et la confiance en Dieu',      color: '#C9A84C' },
+  Chesed:   { desc: 'Cultiver la bonté et la générosité envers tous',  color: '#4A7A5A' },
+  Savlanut: { desc: 'Développer la persévérance et la patience (סבלנות)', color: '#4A7FA5' },
+  Torah:    { desc: "Se consacrer à l'étude de la Torah",              color: '#6B5FA5' },
+  Shalom:   { desc: 'Chercher la paix intérieure et entre les hommes', color: '#4A7A8A' },
+  Simcha:   { desc: "Servir Dieu dans la joie et l'allégresse",        color: '#8A6B20' },
 };
 
 export default function OnboardingScreen() {

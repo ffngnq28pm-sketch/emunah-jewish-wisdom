@@ -14,6 +14,7 @@ export interface WisdomCard {
 export type Theme =
   | 'Emunah'
   | 'Chesed'
+  | 'Savlanut'
   | 'Teshuvah'
   | 'Torah'
   | 'Tzedakah'

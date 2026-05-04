@@ -437,12 +437,12 @@ export default function SettingsScreen() {
               <ChevronRight size={16} color={colors.textMuted} />
             </TouchableOpacity>
             <View style={[styles.divider, { backgroundColor: colors.border }]} />
-            <TouchableOpacity style={styles.row} activeOpacity={0.75} onPress={() => Linking.openURL('https://emunah-jewish-wisdom.netlify.app/privacy.html')}>
+            <TouchableOpacity style={styles.row} activeOpacity={0.75} onPress={() => Linking.openURL('https://ffngnq28pm-sketch.github.io/emunah-jewish-wisdom/privacy.html')}>
               <Text style={[styles.rowLabel, { color: colors.textPrimary }]}>Politique de confidentialité</Text>
               <ChevronRight size={16} color={colors.textMuted} />
             </TouchableOpacity>
             <View style={[styles.divider, { backgroundColor: colors.border }]} />
-            <TouchableOpacity style={styles.row} activeOpacity={0.75} onPress={() => Linking.openURL('https://emunah-jewish-wisdom.netlify.app/terms.html')}>
+            <TouchableOpacity style={styles.row} activeOpacity={0.75} onPress={() => Linking.openURL('https://ffngnq28pm-sketch.github.io/emunah-jewish-wisdom/terms.html')}>
               <Text style={[styles.rowLabel, { color: colors.textPrimary }]}>Conditions d'utilisation</Text>
               <ChevronRight size={16} color={colors.textMuted} />
             </TouchableOpacity>
