@@ -14,6 +14,7 @@ import { StatusBar } from 'expo-status-bar';
 import { LinearGradient } from 'expo-linear-gradient';
 import { router } from 'expo-router';
 import { useUserProfile, FOCUS_THEMES, FOCUS_THEME_ICONS, FocusTheme } from '@/context/UserProfileContext';
+import { findJewishNameMeaning, JewishName } from '@/data/jewishNames';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
@@ -31,6 +32,12 @@ export default function OnboardingScreen() {
   const [step, setStep] = useState<'name' | 'theme'>('name');
   const [name, setName] = useState('');
   const [chosen, setChosen] = useState<FocusTheme | null>(null);
+  const [nameMeaning, setNameMeaning] = useState<JewishName | null>(null);
+
+  function handleNameChange(value: string) {
+    setName(value);
+    setNameMeaning(findJewishNameMeaning(value));
+  }
 
   function handleNameNext() {
     if (step === 'name') setStep('theme');
@@ -81,13 +88,32 @@ export default function OnboardingScreen() {
                 placeholder="Votre prénom..."
                 placeholderTextColor="rgba(201,168,76,0.35)"
                 value={name}
-                onChangeText={setName}
+                onChangeText={handleNameChange}
                 autoFocus
                 returnKeyType="next"
                 onSubmitEditing={handleNameNext}
                 selectionColor="#C9A84C"
               />
             </View>
+
+            {nameMeaning && (
+              <View style={styles.nameMeaningCard}>
+                <Text style={styles.nameMeaningHebrew}>{nameMeaning.hebrew}</Text>
+                <Text style={styles.nameMeaningOrigin}>{nameMeaning.origin} · {nameMeaning.gender === 'M' ? 'Masculin' : nameMeaning.gender === 'F' ? 'Féminin' : 'Mixte'}</Text>
+                <Text style={styles.nameMeaningText}>{nameMeaning.meaning}</Text>
+                {nameMeaning.biblical ? (
+                  <View style={styles.nameMeaningBiblical}>
+                    <Text style={styles.nameMeaningBiblicalLabel}>📖 Référence biblique</Text>
+                    <Text style={styles.nameMeaningBiblicalText}>{nameMeaning.biblical}</Text>
+                  </View>
+                ) : null}
+                {nameMeaning.virtue ? (
+                  <View style={styles.nameMeaningVirtueBadge}>
+                    <Text style={styles.nameMeaningVirtueText}>✡ {nameMeaning.virtue}</Text>
+                  </View>
+                ) : null}
+              </View>
+            )}
 
             <TouchableOpacity
               style={[styles.nextBtn, !name.trim() && styles.nextBtnDisabled]}
@@ -312,5 +338,79 @@ const styles = StyleSheet.create({
   dotActive: {
     width: 24,
     backgroundColor: '#C9A84C',
+  },
+
+  // Name meaning card
+  nameMeaningCard: {
+    width: '100%',
+    backgroundColor: 'rgba(201,168,76,0.07)',
+    borderWidth: 1,
+    borderColor: 'rgba(201,168,76,0.3)',
+    borderRadius: 18,
+    padding: 20,
+    marginBottom: 20,
+    gap: 8,
+    alignItems: 'center',
+  },
+  nameMeaningHebrew: {
+    fontFamily: 'FrankRuhlLibre_700Bold',
+    fontSize: 36,
+    color: '#C9A84C',
+    textShadowColor: 'rgba(201,168,76,0.3)',
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 12,
+    letterSpacing: 2,
+    textAlign: 'center',
+  },
+  nameMeaningOrigin: {
+    fontFamily: 'Lato_400Regular',
+    fontSize: 11,
+    color: 'rgba(201,168,76,0.6)',
+    letterSpacing: 2,
+    textTransform: 'uppercase',
+    textAlign: 'center',
+  },
+  nameMeaningText: {
+    fontFamily: 'Lato_400Regular',
+    fontSize: 13,
+    color: '#B0B8D0',
+    textAlign: 'center',
+    lineHeight: 20,
+    marginTop: 4,
+  },
+  nameMeaningBiblical: {
+    width: '100%',
+    backgroundColor: 'rgba(255,255,255,0.04)',
+    borderRadius: 10,
+    padding: 12,
+    marginTop: 4,
+    gap: 4,
+  },
+  nameMeaningBiblicalLabel: {
+    fontFamily: 'Lato_700Bold',
+    fontSize: 11,
+    color: '#C9A84C',
+    letterSpacing: 0.5,
+  },
+  nameMeaningBiblicalText: {
+    fontFamily: 'Lato_400Regular',
+    fontSize: 12,
+    color: '#8A8FA8',
+    lineHeight: 18,
+  },
+  nameMeaningVirtueBadge: {
+    backgroundColor: 'rgba(201,168,76,0.15)',
+    borderWidth: 1,
+    borderColor: 'rgba(201,168,76,0.4)',
+    borderRadius: 20,
+    paddingHorizontal: 14,
+    paddingVertical: 5,
+    marginTop: 4,
+  },
+  nameMeaningVirtueText: {
+    fontFamily: 'Lato_700Bold',
+    fontSize: 12,
+    color: '#C9A84C',
+    letterSpacing: 0.5,
   },
 });

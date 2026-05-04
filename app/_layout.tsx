@@ -75,6 +75,7 @@ export default function RootLayout() {
               <Stack.Screen name="onboarding" options={{ animation: 'fade' }} />
               <Stack.Screen name="divine-names" options={{ animation: 'slide_from_right' }} />
               <Stack.Screen name="sages" options={{ animation: 'slide_from_right' }} />
+              <Stack.Screen name="tefila" options={{ animation: 'slide_from_right' }} />
               <Stack.Screen
                 name="support"
                 options={{ animation: 'slide_from_bottom', presentation: 'modal' }}

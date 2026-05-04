@@ -9,6 +9,7 @@ import {
   Modal,
 } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import { router } from 'expo-router';
 import { useTheme } from '@/context/ThemeContext';
 import { useUserProfile } from '@/context/UserProfileContext';
 import { usePremium } from '@/hooks/usePremium';
@@ -397,6 +398,36 @@ export default function PracticeScreen() {
             );
           })}
 
+          {/* Divider */}
+          <View style={[styles.divider, { backgroundColor: colors.border }]} />
+
+          {/* ── Ressources ───────────────────────────────────────────────────── */}
+          <Text style={[styles.sectionTitle, { color: colors.textPrimary, fontFamily: 'FrankRuhlLibre_700Bold' }]}>
+            Ressources
+          </Text>
+          <Text style={[styles.sectionDescription, { color: colors.textSecondary, fontFamily: 'Lato_400Regular' }]}>
+            Prières, psaumes et textes fondamentaux du judaïsme
+          </Text>
+
+          <TouchableOpacity
+            style={[styles.resourceBtn, { backgroundColor: colors.bgCard, borderColor: colors.borderAccent }]}
+            onPress={() => router.push('/tefila' as any)}
+            activeOpacity={0.85}
+          >
+            <View style={styles.resourceBtnLeft}>
+              <Text style={styles.resourceBtnIcon}>🙏</Text>
+            </View>
+            <View style={styles.resourceBtnInfo}>
+              <Text style={[styles.resourceBtnTitle, { color: colors.textPrimary, fontFamily: 'FrankRuhlLibre_700Bold' }]}>
+                Tefila & Psaumes
+              </Text>
+              <Text style={[styles.resourceBtnSubtitle, { color: colors.textSecondary, fontFamily: 'Lato_400Regular' }]}>
+                Shaharit · Shabbat · Birkot HaMazon · Pirké Avot
+              </Text>
+            </View>
+            <Text style={[styles.resourceBtnArrow, { color: colors.textAccent }]}>›</Text>
+          </TouchableOpacity>
+
           {/* Bottom breathing room */}
           <View style={{ height: 100 }} />
         </ScrollView>
@@ -732,6 +763,39 @@ const styles = StyleSheet.create({
     borderRadius: 2,
   },
   pathCardArrow: {
+    fontSize: 22,
+  },
+
+  // Resource buttons
+  resourceBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderRadius: 14,
+    borderWidth: 1,
+    padding: 14,
+    marginBottom: 8,
+    gap: 12,
+  },
+  resourceBtnLeft: {
+    width: 40,
+    alignItems: 'center',
+  },
+  resourceBtnIcon: {
+    fontSize: 26,
+  },
+  resourceBtnInfo: {
+    flex: 1,
+    gap: 3,
+  },
+  resourceBtnTitle: {
+    fontSize: 14,
+    letterSpacing: 0.2,
+  },
+  resourceBtnSubtitle: {
+    fontSize: 11,
+    lineHeight: 16,
+  },
+  resourceBtnArrow: {
     fontSize: 22,
   },
 });
