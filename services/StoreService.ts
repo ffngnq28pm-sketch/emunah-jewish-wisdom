@@ -3,7 +3,7 @@ import { AsyncStorage_like } from '@/context/storage';
 
 export type ProductId =
   | 'emunah_premium_monthly'
-  | 'emunah_premium_yearly'
+  | 'emunah_premium_lifetime'
   | 'tip_small'
   | 'tip_medium'
   | 'tip_large';
