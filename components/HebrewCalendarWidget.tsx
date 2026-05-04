@@ -11,12 +11,13 @@ import { useHebrewCalendar } from '@/hooks/useHebrewCalendar';
 
 export function HebrewCalendarWidget() {
   const { colors } = useTheme();
-  const { periodLabel, periodEmoji, hebrewDateApprox, isShabbat, nextEvent, daysUntilNext } =
+  const { periodLabel, periodEmoji, hebrewDate, isShabbat, nextEvent, daysUntilNext } =
     useHebrewCalendar();
   const [expanded, setExpanded] = useState(false);
 
   const today = new Date();
   const dateStr = today.toLocaleDateString('fr-FR', {
+    weekday: 'long',
     day: 'numeric',
     month: 'long',
     year: 'numeric',
@@ -55,7 +56,7 @@ export function HebrewCalendarWidget() {
             </>
           ) : (
             <Text style={[styles.eventDays, { color: colors.textMuted }]}>
-              {isShabbat ? 'Shabbat Shalom' : hebrewDateApprox}
+              {isShabbat ? 'Shabbat Shalom' : hebrewDate}
             </Text>
           )}
         </View>
@@ -72,7 +73,7 @@ export function HebrewCalendarWidget() {
           <View style={styles.expandedItem}>
             <Text style={[styles.expandedLabel, { color: colors.textMuted }]}>Date hébraïque</Text>
             <Text style={[styles.expandedValue, { color: colors.textPrimary }]}>
-              ~{hebrewDateApprox}
+              {hebrewDate}
             </Text>
           </View>
           <View style={styles.expandedItem}>

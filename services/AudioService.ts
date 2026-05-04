@@ -7,15 +7,17 @@ const AMBIENT_SOURCES: Record<string, number | null> = {
   wind:    require('../assets/audio/wind.wav'),
   shofar:  require('../assets/audio/shofar.wav'),
   nigun:   require('../assets/audio/nigun.wav'),
+  church:  require('../assets/audio/church.wav'),
   silence: null,
 };
 
 export const AMBIENT_TRACKS = [
-  { id: 'silence', label: 'Silence sacré',        emoji: '✡️', premium: false },
-  { id: 'rain',    label: 'Pluie de Jérusalem',   emoji: '🌧️', premium: true },
-  { id: 'wind',    label: 'Vent du désert',        emoji: '🏜️', premium: true },
-  { id: 'shofar',  label: 'Shofar méditatif',      emoji: '🎺', premium: true },
-  { id: 'nigun',   label: 'Nigun contemplatif',    emoji: '🎶', premium: true },
+  { id: 'silence', label: 'Silence sacré',         emoji: '✡️', premium: false },
+  { id: 'rain',    label: 'Pluie de Jérusalem',    emoji: '🌧️', premium: true },
+  { id: 'wind',    label: 'Vent du désert',         emoji: '🏜️', premium: true },
+  { id: 'shofar',  label: 'Shofar méditatif',       emoji: '🎺', premium: true },
+  { id: 'nigun',   label: 'Nigun contemplatif',     emoji: '🎶', premium: true },
+  { id: 'church',  label: 'Chant synagogal',        emoji: '🕍', premium: true },
 ] as const;
 
 export type AmbientId = (typeof AMBIENT_TRACKS)[number]['id'];
@@ -36,11 +38,13 @@ async function ensureAudioConfigured() {
   _audioConfigured = true;
 }
 
+const SILENCE_B64 = 'data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YQAAAAA=';
+
 export function unlockWebAudioSync(silenceAssetUrl: string) {
   if (Platform.OS !== 'web' || typeof document === 'undefined') return;
   try {
     const a = document.createElement('audio');
-    a.src = silenceAssetUrl;
+    a.src = silenceAssetUrl || SILENCE_B64;
     a.volume = 0.001;
     a.play().catch(() => {});
     AsyncStorage_like.set(WEB_UNLOCK_KEY, '1');

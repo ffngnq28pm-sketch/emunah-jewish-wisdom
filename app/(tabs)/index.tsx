@@ -9,6 +9,7 @@ import {
   Dimensions,
   NativeSyntheticEvent,
   NativeScrollEvent,
+  Platform,
 } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { ChevronLeft, ChevronRight, Target } from 'lucide-react-native';
@@ -114,7 +115,7 @@ export default function HomeScreen() {
   return (
     <View style={[styles.root, { backgroundColor: colors.bg }]}>
       <StatusBar style={colors.statusBar} />
-      <SafeAreaView style={styles.safeArea}>
+      <SafeAreaView style={[styles.safeArea, Platform.OS === 'web' && { overflow: 'scroll' as any }]}>
         {/* Header */}
         <View style={styles.header}>
           <View>
@@ -226,7 +227,7 @@ export default function HomeScreen() {
           showsHorizontalScrollIndicator={false}
           onScroll={onScroll}
           scrollEventThrottle={16}
-          style={styles.flatList}
+          style={[styles.flatList, Platform.OS === 'web' && { flex: undefined, height: 320 }]}
           contentContainerStyle={styles.flatListContent}
           initialScrollIndex={0}
           getItemLayout={(_, index) => ({

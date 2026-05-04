@@ -25,6 +25,18 @@
         ],
         "NSMicrophoneUsageDescription": "Emunah n'utilise pas le microphone.",
         "CFBundleDisplayName": "Emunah"
+      },
+      "privacyManifests": {
+        "NSPrivacyAccessedAPITypes": [
+          {
+            "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults",
+            "NSPrivacyAccessedAPITypeReasons": [
+              "CA92.1"
+            ]
+          }
+        ],
+        "NSPrivacyCollectedDataTypes": [],
+        "NSPrivacyTracking": false
       }
     },
     "android": {
@@ -66,7 +78,8 @@
       ]
     ],
     "experiments": {
-      "typedRoutes": true
+      "typedRoutes": true,
+      "baseUrl": "/emunah-jewish-wisdom"
     },
     "extra": {
       "router": {},

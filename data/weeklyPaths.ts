@@ -184,7 +184,7 @@ export const WEEKLY_PATHS: WeeklyPath[] = [
     description: `Quatorze jours de pratique de l'hitbodedut selon les enseignements de Rebbe Nachman de Breslev. Apprenez a parler librement a Hachem et a trouver la connexion dans le quotidien.`,
     durationDays: 14,
     isPremium: true,
-    icon: '🌙',
+    icon: '🕯️',
     color: '#5A6A9A',
     days: [
       { dayNumber: 1, title: `Introduction a l'hitbodedut`, sessionId: 'session_hitbodedut_17', description: `Comprendre l'essence de la solitude avec Hachem.` },

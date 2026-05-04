@@ -203,7 +203,7 @@ export const CARDS: WisdomCard[] = [
     philosophyAuthor: 'Emmanuel Lévinas',
     theme: 'Torah',
     sourceType: 'Torah',
-    backgroundImage: 'https://images.pexels.com/photos/33613/church-building-architecture-door.jpg?auto=compress&cs=tinysrgb&w=800',
+    backgroundImage: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iNjAwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMwZDFmM2MiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxYTNhNWMiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0idXJsKCNnKSIvPjx0ZXh0IHg9IjQwMCIgeT0iNDA4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjMwMCIgZm9udC1mYW1pbHk9InNlcmlmIiBmaWxsPSIjYzRhMzVhIiBvcGFjaXR5PSIwLjc1Ij4mI3gyNzIxOzwvdGV4dD48L3N2Zz4=',
     premium: false,
   },
   {

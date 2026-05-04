@@ -55,7 +55,7 @@ const JOURNAL_QUESTIONS: JournalQuestion[] = [
     label: "Kavanah pour demain",
     hebrewLabel: "כַּוָּנָה",
     placeholder: "Ma kavanah (intention) pour demain — ce que je veux mettre en pratique...",
-    icon: "🌙",
+    icon: "⭐",
   },
   {
     key: "praise",

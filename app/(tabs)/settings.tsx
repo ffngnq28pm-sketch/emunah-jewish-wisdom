@@ -6,6 +6,7 @@ import {
   StyleSheet,
   SafeAreaView,
   TouchableOpacity,
+  Linking,
   Switch,
   TextInput,
 } from 'react-native';
@@ -21,6 +22,7 @@ import {
   Clock,
   Heart,
   Music,
+  Globe,
 } from 'lucide-react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { router } from 'expo-router';
@@ -37,6 +39,7 @@ import {
   NotifPreset,
 } from '@/context/UserProfileContext';
 import { useNightModeContext } from '@/context/NightModeContext';
+import { useI18n, LANG_META } from '@/context/I18nContext';
 
 const TIMER_OPTIONS = [5, 10, 15, 30] as const;
 
@@ -71,6 +74,7 @@ const VISUAL_THEMES: VisualTheme[] = [
 export default function SettingsScreen() {
   const { isPremium, unlockPremium } = usePremium();
   const { theme, setTheme, colors } = useTheme();
+  const { lang, setLang } = useI18n();
   const { profile, update, focusDays } = useUserProfile();
   const { isNightMode, isAutoEnabled, timerMinutes, toggleManual, setAutoEnabled, setTimer } =
     useNightModeContext();
@@ -270,8 +274,49 @@ export default function SettingsScreen() {
                     );
                   })}
                 </View>
+
+                <View style={[styles.divider, { backgroundColor: colors.border }]} />
+                <Text style={[styles.rowLabel, { color: colors.textMuted, paddingHorizontal: 16, paddingTop: 8, paddingBottom: 4, fontSize: 11 }]}>
+                  Thème des notifications
+                </Text>
+                <View style={[styles.notifPresetRow, { flexWrap: 'wrap' }]}>
+                  {(['', ...FOCUS_THEMES] as string[]).map((t) => (
+                    <TouchableOpacity
+                      key={t}
+                      style={[styles.presetBtn, { borderColor: colors.border }, profile.notifTheme === t && { borderColor: accent, backgroundColor: accent + '14' }]}
+                      onPress={() => update({ notifTheme: t })}
+                      activeOpacity={0.8}
+                    >
+                      <Text style={[styles.presetName, { color: colors.textMuted }, profile.notifTheme === t && { color: accent }]}>
+                        {t || 'Aléatoire'}
+                      </Text>
+                    </TouchableOpacity>
+                  ))}
+                </View>
               </>
             )}
+          </View>
+
+          {/* Section: Language */}
+          <Text style={[styles.sectionLabel, { color: colors.textMuted }]}>LANGUE</Text>
+          <View style={[styles.section, { backgroundColor: colors.bgSection, borderColor: colors.border }]}>
+            <View style={styles.sectionHeader}>
+              <Globe size={18} color={accent} />
+              <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>Langue de l&apos;interface</Text>
+            </View>
+            <View style={styles.langGrid}>
+              {LANG_META.map((meta) => (
+                <TouchableOpacity
+                  key={meta.code}
+                  style={[styles.langBtn, { backgroundColor: colors.bgInput, borderColor: colors.border }, lang === meta.code && { backgroundColor: accent + '20', borderColor: accent }]}
+                  onPress={() => setLang(meta.code)}
+                  activeOpacity={0.8}
+                >
+                  <Text style={[styles.langCode, { color: colors.textMuted }, lang === meta.code && { color: accent }]}>{meta.code.toUpperCase()}</Text>
+                  <Text style={[styles.langNative, { color: colors.textMuted }, lang === meta.code && { color: colors.textSecondary }]}>{meta.native}</Text>
+                </TouchableOpacity>
+              ))}
+            </View>
           </View>
 
           {/* Visual Theme */}
@@ -389,6 +434,16 @@ export default function SettingsScreen() {
                   Tzedakah — soutenir l'œuvre
                 </Text>
               </View>
+              <ChevronRight size={16} color={colors.textMuted} />
+            </TouchableOpacity>
+            <View style={[styles.divider, { backgroundColor: colors.border }]} />
+            <TouchableOpacity style={styles.row} activeOpacity={0.75} onPress={() => Linking.openURL('https://emunah-jewish-wisdom.netlify.app/privacy.html')}>
+              <Text style={[styles.rowLabel, { color: colors.textPrimary }]}>Politique de confidentialité</Text>
+              <ChevronRight size={16} color={colors.textMuted} />
+            </TouchableOpacity>
+            <View style={[styles.divider, { backgroundColor: colors.border }]} />
+            <TouchableOpacity style={styles.row} activeOpacity={0.75} onPress={() => Linking.openURL('https://emunah-jewish-wisdom.netlify.app/terms.html')}>
+              <Text style={[styles.rowLabel, { color: colors.textPrimary }]}>Conditions d'utilisation</Text>
               <ChevronRight size={16} color={colors.textMuted} />
             </TouchableOpacity>
             <View style={[styles.divider, { backgroundColor: colors.border }]} />
@@ -626,6 +681,12 @@ const styles = StyleSheet.create({
     fontFamily: 'Lato_700Bold',
     fontSize: 13,
   },
+  sectionHeader: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: 18, paddingVertical: 14 },
+  sectionTitle: { fontFamily: 'Lato_400Regular', fontSize: 13 },
+  langGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, paddingHorizontal: 14, paddingBottom: 14 },
+  langBtn: { width: '28%', minWidth: 70, paddingVertical: 10, borderRadius: 12, alignItems: 'center', borderWidth: 1, gap: 2 },
+  langCode: { fontFamily: 'Lato_700Bold', fontSize: 13 },
+  langNative: { fontFamily: 'Lato_400Regular', fontSize: 11 },
   sigBlock: {
     marginTop: 32,
     alignItems: 'center',
