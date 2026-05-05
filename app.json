@@ -23,7 +23,8 @@
           "audio"
         ],
         "NSMicrophoneUsageDescription": "Emunah n'utilise pas le microphone.",
-        "CFBundleDisplayName": "Emunah"
+        "CFBundleDisplayName": "Emunah",
+        "ITSAppUsesNonExemptEncryption": false
       },
       "privacyManifests": {
         "NSPrivacyAccessedAPITypes": [
