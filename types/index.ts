@@ -27,7 +27,9 @@ export type Theme =
   | 'Emet'
   | 'Neshama'
   | 'Kedushah'
-  | 'Bitachon';
+  | 'Bitachon'
+  | 'Modération'
+  | 'Tempérance';
 
 export type SourceType =
   | 'Torah'
