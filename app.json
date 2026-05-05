@@ -20,7 +20,6 @@
       "buildNumber": "1",
       "infoPlist": {
         "UIBackgroundModes": [
-          "audio",
           "audio"
         ],
         "NSMicrophoneUsageDescription": "Emunah n'utilise pas le microphone.",
@@ -47,8 +46,6 @@
         "backgroundColor": "#080A12"
       },
       "permissions": [
-        "android.permission.FOREGROUND_SERVICE",
-        "android.permission.MODIFY_AUDIO_SETTINGS",
         "android.permission.FOREGROUND_SERVICE",
         "android.permission.MODIFY_AUDIO_SETTINGS"
       ]
@@ -88,9 +85,7 @@
       }
     },
     "owner": "charif759491",
-    "runtimeVersion": {
-      "policy": "sdkVersion"
-    },
+    "runtimeVersion": "1.0.0",
     "updates": {
       "url": "https://u.expo.dev/73f7eaa9-eba9-446b-9df7-1687ca8b5d26"
     }
