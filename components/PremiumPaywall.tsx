@@ -276,7 +276,6 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   plan: {
-    flex: 1,
     padding: 14,
     borderRadius: 14,
     borderWidth: 1.5,
@@ -290,7 +289,7 @@ const styles = StyleSheet.create({
   },
   planLeft: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   planName: { fontFamily: 'Lato_700Bold', fontSize: 14, color: '#F2EAD0' },
-  planPrice: { fontFamily: 'Lato_400Regular', fontSize: 12, color: '#7A6248' },
+  planPrice: { fontFamily: 'Lato_400Regular', fontSize: 12, color: '#C8B488' },
   bestValueBadge: {
     backgroundColor: '#C9A84C',
     borderRadius: 6,
