@@ -12,7 +12,6 @@ export interface PremiumState {
   restorePurchases: () => Promise<boolean>;
   purchaseTip: (size: 'small' | 'medium' | 'large') => Promise<PurchaseResult>;
   isCardLocked: (cardIndex: number) => boolean;
-  unlockPremium: () => void;
 }
 
 const PLAN_MAP: Record<PremiumPlan, ProductId> = {
@@ -87,10 +86,5 @@ export function usePremium(): PremiumState {
     [isPremium]
   );
 
-  const unlockPremium = useCallback(() => {
-    StoreService.unlockPremium();
-    broadcast(true);
-  }, []);
-
-  return { isPremium, isLoading, purchasePlan, restorePurchases, purchaseTip, isCardLocked, unlockPremium };
+  return { isPremium, isLoading, purchasePlan, restorePurchases, purchaseTip, isCardLocked };
 }

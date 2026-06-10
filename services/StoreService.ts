@@ -109,8 +109,4 @@ export const StoreService = {
     return () => { _rcListeners = _rcListeners.filter((l) => l !== fn); };
   },
 
-  unlockPremium(): void {
-    AsyncStorage_like.set(CACHE_KEY, 'true');
-    _rcListeners.forEach((fn) => fn(true));
-  },
 };

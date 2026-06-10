@@ -20,7 +20,7 @@ interface Props {
 }
 
 const FEATURES = [
-  'Accès aux 60 sagesses de la bibliothèque complète',
+  'Accès illimité à toute la bibliothèque de sagesses',
   'Noms divins de Dieu — collection des 25 Noms saints',
   'Maîtres du Judaïsme — série encyclopédique',
   'Méditations du Omer et des Yamim Noraïm',

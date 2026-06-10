@@ -72,7 +72,7 @@ const VISUAL_THEMES: VisualTheme[] = [
 ];
 
 export default function SettingsScreen() {
-  const { isPremium, unlockPremium } = usePremium();
+  const { isPremium } = usePremium();
   const { theme, setTheme, colors } = useTheme();
   const { lang, setLang } = useI18n();
   const { profile, update, focusDays } = useUserProfile();
